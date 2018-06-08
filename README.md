@@ -10,11 +10,13 @@ and 81-106 in reddit_twitter.py), design your favorite network architecture
 network parameters (lines 168-179 in addition.py and 73-79 in reddit_twitter.py). 
 
 https://scholar.harvard.edu/hadi/spot
-Please see this address for most recent update on spotting spurious data. 
+Please see this address for most recent updates on spotting spurious data. 
 
 # How to Use
 python addition.py
+
 or
+
 python reddit_twitter.py
 
 ### Parameters 
