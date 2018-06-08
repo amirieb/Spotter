@@ -30,7 +30,7 @@ smaller value than 1.0 can be used for more flexibility.
 
 
 # Citation
-Hadi Amiri, Timothy A. Miller, Guergana Savova. [Spotting Spurious Data with Neural Networks](https://scholar.harvard.edu/files/hadi/files/amiri_naacl18.pdf). NAACL 2018. 
+Hadi Amiri, Timothy A. Miller, Guergana Savova. [Spotting Spurious Data with Neural Networks](http://aclweb.org/anthology/N18-1182). NAACL 2018. 
 
 # Contact
 Hadi Amiri, hadi.amiri@childrens.harvard.edu
