@@ -24,7 +24,7 @@ python addition.py
 
 or 
 
-python text_spotter_template.py (after loading your data: lines 54-63)
+python text_spotter_template.py (after completing the template)
 
 ### Parameters 
 **kern**: kernel function: this parameter must be set to 'lit' when fitting 
