@@ -77,21 +77,21 @@ texts, labels = get_data()
 train_size = int(.9 * len(texts))
 X_train = texts[:train_size]
 y_train = labels[:train_size]
-X_test = texts[train_size:]
-y_test = labels[train_size:]
+X_dev = texts[train_size:]
+y_dev = labels[train_size:]
 tokenizer = keras.preprocessing.text.Tokenizer(nb_words=max_features, filters='') 
-tokenizer.fit_on_texts(X_train + X_test)
+tokenizer.fit_on_texts(X_train + X_dev)
 X_train = tokenizer.texts_to_sequences(X_train)
-X_test = tokenizer.texts_to_sequences(X_test)
+X_dev = tokenizer.texts_to_sequences(X_dev)
 print(len(X_train), 'train sequences')
-print(len(X_test), 'test sequences')
+print(len(X_dev), 'dev sequences')
 print('Average train sequence length: {}'.format(np.mean(list(map(len, X_train)), dtype=int)))
-print('Average test sequence length: {}'.format(np.mean(list(map(len, X_test)), dtype=int)))
+print('Average dev sequence length: {}'.format(np.mean(list(map(len, X_dev)), dtype=int)))
 print('Pad sequences (samples x time)')
 X_train = sequence.pad_sequences(X_train, maxlen=maxlen)
-X_test = sequence.pad_sequences(X_test, maxlen=maxlen)
+X_dev = sequence.pad_sequences(X_dev, maxlen=maxlen)
 print('X_train shape:', X_train.shape)
-print('X_test shape:', X_test.shape)
+print('X_dev shape:', X_dev.shape)
 
 
 # BUILD THE NETWORK
@@ -108,7 +108,7 @@ print (model.summary())
 # SIMULTANEOUSLY TRAIN THE NETWORK & IDENTIFY SPURIOUS INSTANCES IN TRAINING DATASET.
 # IF YOU WANT TO IDENTIFY ALL SPURIOUS INSTANCES IN YOUR DATASET, USE THE ENTIRE DATA FOR TRAINING
 history, n_instances, q0_sorted = model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch,
-                                          validation_data=(X_test, y_test), kern='lit', acc_thr=acc_thr)
+                                          validation_data=(X_dev, y_dev), kern='lit', acc_thr=acc_thr)
 
 # SHOW A RANKED LIST OF SPURIOUS INSTANCES
 max_rank = 50  # show top max_rank spurious instances
